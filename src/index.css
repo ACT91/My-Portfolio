@@ -1,2 +1,33 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@layer utilities {
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slide-in {
+    from { opacity: 0; transform: translateY(30px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
+  .animate-slide-in {
+    animation: slide-in 0.8s cubic-bezier(0.4,0,0.2,1) forwards;
+  }
+  .delay-150 {
+    animation-delay: 0.15s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+    opacity: 0.7;
+  }
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

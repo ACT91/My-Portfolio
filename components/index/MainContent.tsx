@@ -1,87 +1,97 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faReact,
+  faCss3Alt,
+  faHtml5,
+  faJs,
+  faPython,
+  faGitAlt,
+  faNodeJs,
+  faBootstrap,
+  faAndroid,
+  faFigma,
+} from '@fortawesome/free-brands-svg-icons';
+import { faDatabase, faShieldAlt, faFeather, faCode } from '@fortawesome/free-solid-svg-icons';
+
 interface Skill {
   name: string;
   explanation: string;
   icon: React.FC;
 }
 
-// SVG Icons for each skill
+// FontAwesome-only icons for each skill
 const HtmlIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <path stroke="#e34f26" strokeWidth="2" d="M4 2l8 20 8-20"/>
-  </svg>
+  <span className="mr-2 text-[#e34f26] text-2xl">
+    <FontAwesomeIcon icon={faHtml5} />
+  </span>
 );
 
 const CssIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <path stroke="#264de4" strokeWidth="2" d="M4 2l8 20 8-20"/>
-  </svg>
+  <span className="mr-2 text-[#1572b6] text-2xl">
+    <FontAwesomeIcon icon={faCss3Alt} />
+  </span>
 );
 
 const JavaScriptIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <rect x="2" y="2" width="20" height="20" rx="4" stroke="#f7df1e" strokeWidth="2"/>
-    <path stroke="#f7df1e" strokeWidth="2" d="M10 16c-2-2-2-4 0-6m4 6c2-2 2-4 0-6"/>
-  </svg>
+  <span className="mr-2 text-[#f7df1e] text-2xl">
+    <FontAwesomeIcon icon={faJs} />
+  </span>
 );
 
 const ReactIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <circle cx="12" cy="12" r="10" stroke="#61dafb" strokeWidth="2"/>
-    <path stroke="#61dafb" strokeWidth="2" d="M12 2c-5 5-5 11 0 10s5-5 0-10"/>
-  </svg>
+  <span className="mr-2 text-[#61dafb] text-2xl">
+    <FontAwesomeIcon icon={faReact} />
+  </span>
 );
 
+// Use faFeather for Tailwind (closest match in FontAwesome)
 const TailwindIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <path stroke="#38bdf8" strokeWidth="2" d="M6 12c0-4 6-8 6 0s-6 8-6 0m6 0c0-4 6-8 6 0s-6 8-6 0"/>
-  </svg>
+  <span className="mr-2 text-[#38bdf8] text-2xl">
+    <FontAwesomeIcon icon={faFeather} />
+  </span>
 );
 
 const CSharpIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <rect x="2" y="2" width="20" height="20" rx="4" stroke="#68217a" strokeWidth="2"/>
-    <path stroke="#68217a" strokeWidth="2" d="M12 8v8m-4-4h8"/>
-  </svg>
+  <span className="mr-2 text-[#68217a] text-2xl">
+    <FontAwesomeIcon icon={faCode} />
+  </span>
 );
 
 const PythonIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <rect x="2" y="2" width="20" height="20" rx="4" stroke="#3776ab" strokeWidth="2"/>
-    <path stroke="#3776ab" strokeWidth="2" d="M8 12h8m-4-4v8"/>
-  </svg>
+  <span className="mr-2 text-[#3776ab] text-2xl">
+    <FontAwesomeIcon icon={faPython} />
+  </span>
 );
 
 const KotlinIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <path stroke="#0095d5" strokeWidth="2" d="M4 20L12 4l8 16"/>
-  </svg>
+  <span className="mr-2 text-[#7f52ff] text-2xl">
+    <FontAwesomeIcon icon={faAndroid} />
+  </span>
 );
 
 const FlutterIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <path stroke="#02569b" strokeWidth="2" d="M4 4l10 10 6-6v6h-6"/>
-  </svg>
+  <span className="mr-2 text-[#02569b] text-2xl">
+    <FontAwesomeIcon icon={faFeather} />
+  </span>
 );
 
 const CyberSecurityIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <path stroke="#4caf50" strokeWidth="2" d="M12 2C6 2 2 6 2 12s4 10 10 10 10-4 10-10S18 2 12 2zm0 4v12"/>
-  </svg>
+  <span className="mr-2 text-[#4caf50] text-2xl">
+    <FontAwesomeIcon icon={faShieldAlt} />
+  </span>
 );
 
+// Use faFigma for Figma
 const FigmaIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <circle cx="12" cy="12" r="6" stroke="#f24e1e" strokeWidth="2"/>
-    <circle cx="12" cy="6" r="4" stroke="#0acf83" strokeWidth="2"/>
-  </svg>
+  <span className="mr-2 text-[#a259ff] text-2xl">
+    <FontAwesomeIcon icon={faFigma} />
+  </span>
 );
 
 const MySQLIcon: React.FC = () => (
-  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="mr-2">
-    <ellipse cx="12" cy="12" rx="10" ry="8" stroke="#00758f" strokeWidth="2"/>
-    <path stroke="#f29111" strokeWidth="2" d="M8 16c2-2 6-2 8 0"/>
-    <circle cx="16" cy="12" r="1" fill="#f29111"/>
-  </svg>
+  <span className="mr-2 text-[#00758f] text-2xl">
+    <FontAwesomeIcon icon={faDatabase} />
+  </span>
 );
 
 const skills: Skill[] = [
@@ -150,11 +160,56 @@ const skills: Skill[] = [
 const MainContent: React.FC = () => {
   return (
     <div className="hero min-h-screen bg-base-200 pt-24">
-      {/* Added pt-24 for better top margin (adjust if your header is taller/shorter) */}
       <div className="hero-content text-center">
-        <div className="max-w-4xl">
-          <h1 className="text-5xl font-bold text-primary">Stanley Gersom (ACT91)</h1>
-          <p className="text-2xl mt-4 mb-8">Programmer & Cyber Security Enthusiast</p>
+        <div className="max-w-4xl w-full">
+          {/* Profile Section with background image */}
+          <div
+            className="relative rounded-xl overflow-hidden mb-8 flex flex-col items-start md:items-start justify-center"
+            style={{
+              backgroundImage: "url('/think-about-coding-qlib86o7bz1fqbub-copy.jpg')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              minHeight: '600px',
+            }}
+          >
+            {/* Overlay for readability and blur on screens 764px and below */}
+            <div className="absolute inset-0 bg-opacity-60 md:backdrop-blur-none backdrop-blur-md transition-all duration-500"></div>
+            {/* Profile Info with animation */}
+            <div className="relative z-10 flex flex-col 
+      items-center md:items-start 
+      justify-center h-full py-8 
+      pl-0 md:pl-16 
+      w-full md:w-[60%] mx-auto md:mx-0">
+              <div className="relative w-45 h-45 mb-3">
+                {/* Animated gradient ring */}
+                <span
+                  className="absolute inset-0 z-0 rounded-full animate-spin-slow"
+                  style={{
+                    background: 'conic-gradient(from 0deg, #f472b6, #38bdf8, #facc15, #f472b6)',
+                  }}
+                ></span>
+                {/* Profile image */}
+                <img
+                  src="/471511193_620921727059481_7134572200687933217_n.jpg"
+                  alt="Stanley Gersom's profile"
+                  className="relative w-45 h-45 rounded-full border-4 border-transparent object-cover z-30 animate-fade-in"
+                  style={{}}
+                />
+              </div>
+              <h1 className="text-2xl md:text-3xl font-bold text-primary-content drop-shadow mb-1 text-center md:text-left animate-slide-in">
+                Stanley Gersom (ACT91)
+              </h1>
+              <p className="text-base md:text-lg text-base-100 mb-1 dark:text-white text-center md:text-left animate-slide-in delay-150">
+                Programmer & Cyber Security Enthusiast
+              </p>
+              <p className="text-sm md:text-base text-base-100 max-w-xs mx-auto md:mx-0 dark:text-white text-center md:text-left animate-slide-in delay-300">
+                Passionate about building secure, scalable, and user-friendly applications. 
+                Experienced in full-stack development, mobile apps, and ethical hacking. 
+                Always eager to learn and collaborate on innovative projects.
+              </p>
+            </div>
+          </div>
+          {/* Skills Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {skills.map((skill, index) => (
               <div key={index} className="card bg-base-100 shadow-xl">
