@@ -1,3 +1,5 @@
+import '/styles/MainContent.css';
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faReact,
@@ -5,13 +7,10 @@ import {
   faHtml5,
   faJs,
   faPython,
-  faGitAlt,
-  faNodeJs,
-  faBootstrap,
   faAndroid,
   faFigma,
 } from '@fortawesome/free-brands-svg-icons';
-import { faDatabase, faShieldAlt, faFeather, faCode } from '@fortawesome/free-solid-svg-icons';
+import { faDatabase, faShieldAlt, faFeather, faCode, faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
 
 interface Skill {
   name: string;
@@ -158,6 +157,21 @@ const skills: Skill[] = [
 ];
 
 const MainContent: React.FC = () => {
+  const [showAll, setShowAll] = useState(false);
+
+  // Handler to update mouse position for gradient wave
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    e.currentTarget.style.setProperty('--x', `${x}%`);
+    e.currentTarget.style.setProperty('--y', `${y}%`);
+  };
+
+  // Number of skills to show by default
+  const VISIBLE_COUNT = 9;
+  const visibleSkills = showAll ? skills : skills.slice(0, VISIBLE_COUNT);
+
   return (
     <div className="hero min-h-screen bg-base-200 pt-24">
       <div className="hero-content text-center">
@@ -175,17 +189,27 @@ const MainContent: React.FC = () => {
             {/* Overlay for readability and blur on screens 764px and below */}
             <div className="absolute inset-0 bg-opacity-60 md:backdrop-blur-none backdrop-blur-md transition-all duration-500"></div>
             {/* Profile Info with animation */}
-            <div className="relative z-10 flex flex-col 
-      items-center md:items-start 
-      justify-center h-full py-8 
-      pl-0 md:pl-16 
-      w-full md:w-[60%] mx-auto md:mx-0">
+            <div
+              className="relative z-10 flex flex-col
+      items-center md:items-start
+      justify-center h-full py-8
+      pl-0 md:pl-16
+      w-full md:w-[60%] mx-auto md:mx-0
+      not-prose"
+              style={{
+                // Prevent color scheme inheritance for this block
+                colorScheme: 'light',
+                color: '#222', // force dark text
+                background: 'rgba(255,255,255,0.85)', // subtle white bg for readability
+                borderRadius: '1rem',
+              }}
+            >
               <div className="relative w-45 h-45 mb-3">
                 {/* Animated gradient ring */}
                 <span
                   className="absolute inset-0 z-0 rounded-full animate-spin-slow"
                   style={{
-                    background: 'conic-gradient(from 0deg, #f472b6, #38bdf8, #facc15, #f472b6)',
+                    background: 'conic-gradient(from 0deg, #FFFFFFFF, #000000FF, #000000FF, #000000FF)',
                   }}
                 ></span>
                 {/* Profile image */}
@@ -196,23 +220,44 @@ const MainContent: React.FC = () => {
                   style={{}}
                 />
               </div>
-              <h1 className="text-2xl md:text-3xl font-bold text-primary-content drop-shadow mb-1 text-center md:text-left animate-slide-in">
+              <h1
+                className="text-2xl md:text-3xl font-bold drop-shadow mb-1 text-center md:text-left animate-slide-in"
+                style={{ color: '#222' }}
+              >
                 Stanley Gersom (ACT91)
               </h1>
-              <p className="text-base md:text-lg text-base-100 mb-1 dark:text-white text-center md:text-left animate-slide-in delay-150">
+              <p
+                className="text-base md:text-lg mb-1 text-center md:text-left animate-slide-in delay-150"
+                style={{ color: '#333' }}
+              >
                 Programmer & Cyber Security Enthusiast
               </p>
-              <p className="text-sm md:text-base text-base-100 max-w-xs mx-auto md:mx-0 dark:text-white text-center md:text-left animate-slide-in delay-300">
-                Passionate about building secure, scalable, and user-friendly applications. 
-                Experienced in full-stack development, mobile apps, and ethical hacking. 
+              <p
+                className="text-sm md:text-base max-w-xs mx-auto md:mx-0 text-center md:text-left animate-slide-in delay-300"
+                style={{ color: '#444' }}
+              >
+                Passionate about building secure, scalable, and user-friendly applications.
+                Experienced in full-stack development, mobile apps, and ethical hacking.
                 Always eager to learn and collaborate on innovative projects.
               </p>
             </div>
           </div>
+          
+          {/* Solid divider line above skills heading */}
+          <div className="w-full my-8">
+            <div className="h-[2px] w-4/5 max-w-2xl mx-auto bg-black dark:bg-white rounded"></div>
+          </div>
+          {/* Skills Section Heading */}
+          <h2 className="text-3xl font-bold mb-6 text-center">My Programming Languages & Tools</h2>
+          
           {/* Skills Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {skills.map((skill, index) => (
-              <div key={index} className="card bg-base-100 shadow-xl">
+            {visibleSkills.map((skill, index) => (
+              <div
+                key={index}
+                className="card bg-base-100 shadow-xl skill-gradient-wave"
+                onMouseMove={handleMouseMove}
+              >
                 <div className="card-body items-center">
                   <skill.icon />
                   <h2 className="card-title justify-center">{skill.name}</h2>
@@ -221,6 +266,18 @@ const MainContent: React.FC = () => {
               </div>
             ))}
           </div>
+          {/* Show More / Show Less Button */}
+          {skills.length > VISIBLE_COUNT && (
+            <div className="flex justify-center mt-4">
+              <button
+                className="btn btn-ghost btn-circle text-3xl transition-transform duration-300"
+                onClick={() => setShowAll((prev) => !prev)}
+                aria-label={showAll ? 'Show less' : 'Show more'}
+              >
+                <FontAwesomeIcon icon={showAll ? faAnglesUp : faAnglesDown} />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@ const platformLinks = [
     icon: faLinkedin,
   },
   {
-    name: 'X',
+    name: 'Twitter/X',
     url: 'https://x.com/yourusername',
     icon: faXTwitter,
   },
@@ -26,6 +26,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="footer p-10 bg-base-200 text-base-content relative transition-colors duration-300 overflow-hidden">
+      <div className="footer-gradient-border"></div>
       {/* Background decoration - changed to use theme colors */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 pointer-events-none z-0"></div>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent pointer-events-none z-0"></div>

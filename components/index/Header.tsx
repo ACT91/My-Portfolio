@@ -1,8 +1,16 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import '/styles/Header.css';
 
 const Header: React.FC = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  const navLinks = [
+    { to: '/', label: 'Home' },
+    { to: '/about', label: 'About' },
+    { to: '/contact', label: 'Contact' },
+  ];
 
   return (
     <header className="navbar bg-base-100 fixed top-0 z-10 shadow-lg">
@@ -30,21 +38,16 @@ const Header: React.FC = () => {
       <div className="navbar-end">
         {/* Desktop menu */}
         <ul className="menu menu-horizontal px-1 hidden md:flex">
-          <li>
-            <Link to="/" className="btn btn-ghost font-semibold text-base">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="btn btn-ghost font-semibold text-base">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="btn btn-ghost font-semibold text-base">
-              Contact
-            </Link>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.to}>
+              <Link
+                to={link.to}
+                className={`btn btn-ghost font-semibold text-base header-link-gradient${location.pathname === link.to ? ' active' : ''}`}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
         {/* Theme toggle button */}
         <label className="swap swap-rotate btn btn-circle btn-ghost">
@@ -88,21 +91,17 @@ const Header: React.FC = () => {
               ✕
             </button>
             <ul className="menu menu-vertical px-4 gap-2">
-              <li>
-                <Link to="/" className="btn btn-ghost w-full font-semibold text-base" onClick={() => setOpen(false)}>
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="btn btn-ghost w-full font-semibold text-base" onClick={() => setOpen(false)}>
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="btn btn-ghost w-full font-semibold text-base" onClick={() => setOpen(false)}>
-                  Contact
-                </Link>
-              </li>
+              {navLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className={`btn btn-ghost w-full font-semibold text-base header-link-gradient${location.pathname === link.to ? ' active' : ''}`}
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
