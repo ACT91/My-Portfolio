@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               </p>
             </div>
             {/* Social Links */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 w-full justify-center md:justify-start"> {/* Added responsive justify classes */}
               {platformLinks.map((platform, index) => (
                 <a
                   key={index}
@@ -64,56 +64,70 @@ const Footer: React.FC = () => {
               ))}
             </div>
           </div>
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
-            <ul className="space-y-2">
-              {[
-                { to: '/', label: 'Home' },
-                { to: '/about', label: 'About' },
-                { to: '/contact', label: 'Contact' }
-              ].map((link, index) => (
-                <li key={index}>
-                  <Link
-                    to={link.to}
-                    className="link link-hover hover:text-primary transition-colors duration-200 text-sm"
+          
+          {/* Quick Links and Contact Info Container */}
+          <div className="grid grid-cols-2 col-span-1 md:col-span-2 gap-8 lg:grid-cols-3 lg:w-full">
+            {/* Empty div for spacing on large screens */}
+            <div className="hidden lg:block"></div>
+            
+            {/* Quick Links */}
+            <div className="flex flex-col items-center"> {/* Center alignment */}
+              <h4 className="text-lg font-semibold mb-6 underline decoration-primary/50 underline-offset-4">
+                Quick Links
+              </h4>
+              <ul className="space-y-2">
+                {[
+                  { to: '/', label: 'Home' },
+                  { to: '/about', label: 'About' },
+                  { to: '/contact', label: 'Contact' }
+                ].map((link, index) => (
+                  <li key={index}>
+                    <Link
+                      to={link.to}
+                      className="link link-hover hover:text-primary transition-colors duration-200 text-sm"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            {/* Contact Info */}
+            <div className="flex flex-col items-start"> {/* Left alignment for content */}
+              <h4 className="text-lg font-semibold mb-6 underline decoration-primary/50 underline-offset-4">
+                Get in Touch
+              </h4>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs uppercase tracking-wide mb-1">Email</p>
+                  <a 
+                    href="mailto:stanley.gersom@gmail.com" 
+                    className="link link-hover text-sm hover:text-primary transition-colors duration-200 email-pulse"
                   >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Get in Touch</h4>
-            <div className="space-y-4">
-              <div>
-                <p className="text-xs uppercase tracking-wide mb-1">Email</p>
-                <a 
-                  href="mailto:stanley.gersom@example.com" 
-                  className="link link-hover text-sm hover:text-primary transition-colors duration-200"
-                >
-                  stanley.gersom@example.com
-                </a>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wide mb-1">Location</p>
-                <p className="text-sm">Remote</p>
+                    stanleygersom@gmail.com
+                  </a>
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-wide mb-1">Location</p>
+                  <p className="text-sm">Remote/Blantyre, Malawi</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
         {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-base-300">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm">
-              © {currentYear} Stanley Gersom (ACT91). All rights reserved.
-            </p>
-            <div className="flex items-center gap-6 text-xs">
-              <span>Built with ❤️ and React</span>
-              <span className="hidden md:block">•</span>
-              <span>Open to opportunities</span>
+        <div className="mt-16 pt-8 border-t border-base-300 w-full"> {/* Added w-full */}
+          <div className="flex flex-col items-center justify-center text-center gap-4 w-full"> {/* Added w-full */}
+            <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto"> {/* Added container */}
+              <p className="text-sm">
+                © {currentYear} - ACT91. All rights reserved.
+              </p>
+              <div className="flex items-center justify-center gap-6 text-xs mt-2"> {/* Added justify-center */}
+                <span>Built with ❤️ and React</span>
+                <span className="opacity-50">•</span>
+                <span>Open to opportunities</span>
+              </div>
             </div>
           </div>
         </div>

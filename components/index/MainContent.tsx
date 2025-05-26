@@ -11,6 +11,7 @@ import {
   faFigma,
 } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase, faShieldAlt, faFeather, faCode, faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
+import TypeWriter from '../common/TypeWriter';
 
 interface Skill {
   name: string;
@@ -158,6 +159,7 @@ const skills: Skill[] = [
 
 const MainContent: React.FC = () => {
   const [showAll, setShowAll] = useState(false);
+  const [showSecondText, setShowSecondText] = useState(false);
 
   // Handler to update mouse position for gradient wave
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -173,7 +175,7 @@ const MainContent: React.FC = () => {
   const visibleSkills = showAll ? skills : skills.slice(0, VISIBLE_COUNT);
 
   return (
-    <div className="hero min-h-screen bg-base-200 pt-24">
+    <div className="hero min-h-screen bg-base-200 pt-24 mb-20">
       <div className="hero-content text-center">
         <div className="max-w-4xl w-full">
           {/* Profile Section with background image */}
@@ -192,14 +194,17 @@ const MainContent: React.FC = () => {
             <div
               className="relative z-10 flex flex-col
       items-center md:items-start
-      justify-center h-full py-8
+      justify-center py-8
       pl-0 md:pl-16
       w-full md:w-[60%] mx-auto md:mx-0
-      not-prose"
+      not-prose
+      h-auto
+      rounded-xl
+      max-[768px]:h-[600px]"
               style={{
                 // Prevent color scheme inheritance for this block
                 colorScheme: 'light',
-                color: '#222', // force dark text
+                color: '#000', // force dark text
                 background: 'rgba(255,255,255,0.85)', // subtle white bg for readability
                 borderRadius: '1rem',
               }}
@@ -226,20 +231,24 @@ const MainContent: React.FC = () => {
               >
                 Stanley Gersom (ACT91)
               </h1>
-              <p
-                className="text-base md:text-lg mb-1 text-center md:text-left animate-slide-in delay-150"
-                style={{ color: '#333' }}
-              >
-                Programmer & Cyber Security Enthusiast
+              <p className="text-base md:text-lg mb-1 text-center md:text-left animate-slide-in delay-150"
+                 style={{ color: '#333' }}>
+                <TypeWriter 
+                  text="Programmer & Cyber Security Enthusiast"
+                  delay={70}
+                  onComplete={() => setShowSecondText(true)}
+                />
               </p>
-              <p
-                className="text-sm md:text-base max-w-xs mx-auto md:mx-0 text-center md:text-left animate-slide-in delay-300"
-                style={{ color: '#444' }}
-              >
-                Passionate about building secure, scalable, and user-friendly applications.
-                Experienced in full-stack development, mobile apps, and ethical hacking.
-                Always eager to learn and collaborate on innovative projects.
-              </p>
+              
+              {showSecondText && (
+                <p className="text-sm md:text-base max-w-xs mx-auto md:mx-0 text-center md:text-left animate-slide-in delay-300"
+                   style={{ color: '#444' }}>
+                  <TypeWriter 
+                    text="Passionate about building secure, scalable, and user-friendly applications. Experienced in full-stack development, mobile apps, and ethical hacking. Always eager to learn and collaborate on innovative projects."
+                    delay={30}
+                  />
+                </p>
+              )}
             </div>
           </div>
           
@@ -270,11 +279,14 @@ const MainContent: React.FC = () => {
           {skills.length > VISIBLE_COUNT && (
             <div className="flex justify-center mt-4">
               <button
-                className="btn btn-ghost btn-circle text-3xl transition-transform duration-300"
+                className="btn btn-ghost btn-circle text-3xl"
                 onClick={() => setShowAll((prev) => !prev)}
                 aria-label={showAll ? 'Show less' : 'Show more'}
               >
-                <FontAwesomeIcon icon={showAll ? faAnglesUp : faAnglesDown} />
+                <FontAwesomeIcon 
+                  icon={showAll ? faAnglesUp : faAnglesDown} 
+                  className={showAll ? 'bounce-up' : 'bounce-down'}
+                />
               </button>
             </div>
           )}

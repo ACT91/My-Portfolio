@@ -52,3 +52,23 @@
     background-position: center;
   }
 }
+
+@keyframes emailPulse {
+  0%, 100% {
+    opacity: 1;
+    color: inherit;
+  }
+  50% {
+    opacity: 1;
+    color: #38bdf8; /* Change this to match your primary color */
+  }
+  80% {
+    opacity: 1;
+    color: #ff0084 /* Change this to match your primary color */
+  }
+
+}
+
+.email-pulse {
+  animation: emailPulse 3s ease-in-out infinite;
+}
