@@ -15,24 +15,11 @@ const Header: React.FC = () => {
   return (
     <header className="navbar bg-base-100 fixed top-0 z-10 shadow-lg">
       <div className="navbar-start">
-        <Link to="/" className="flex items-center gap-1 group">
-          <span className="text-3xl font-extrabold tracking-tight text-primary group-hover:text-[#ff0084] transition-colors duration-300">
-            ACT
-          </span>
-          <span
-            className="text-3xl font-extrabold tracking-tight ml-0.5"
-            style={{
-              background: 'linear-gradient(90deg, #38bdf8 0%, #ff0084 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              color: 'transparent',
-              fontWeight: 800,
-              letterSpacing: '0.05em',
-            }}
-          >
-            91
-          </span>
+        <Link
+          to="/"
+          className="btn btn-ghost text-xl font-bold header-link-gradient"
+        >
+          ACT91 Portfolio
         </Link>
       </div>
       <div className="navbar-end">

@@ -2,6 +2,22 @@
   position: relative;
   z-index: 1;
   transition: color 0.2s;
+  color: transparent !important;
+  background: linear-gradient(90deg, #38bdf8, #f472b6, #38bdf8);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-gradient-move 3s linear infinite;
+}
+.header-link-gradient:hover {
+  color: transparent !important;
+  background: linear-gradient(90deg, #f472b6, #38bdf8, #facc15, #f472b6);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 3s linear infinite;
 }
 .header-link-gradient.active {
   color: transparent !important;
@@ -27,4 +43,21 @@
 @keyframes header-link-gradient-move {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
+}
+
+@keyframes text-gradient-move {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
 }

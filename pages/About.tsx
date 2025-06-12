@@ -150,23 +150,7 @@ const About: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="mt-8 text-center">
-            <h2 className="text-2xl font-semibold text-primary mb-4">Let’s Connect</h2>
-            <div className="flex justify-center space-x-4">
-              <a href="https://github.com/act91" target="_blank" rel="noopener noreferrer" className="hover:text-primary" aria-label="Visit my GitHub profile">
-                <GitHubIcon />
-                <span className="sr-only">GitHub</span>
-              </a>
-              <a href="https://linkedin.com/in/stanley-gersom" target="_blank" rel="noopener noreferrer" className="hover:text-primary" aria-label="Visit my LinkedIn profile">
-                <LinkedInIcon />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a href="https://x.com/act91" target="_blank" rel="noopener noreferrer" className="hover:text-primary" aria-label="Visit my Twitter/X profile">
-                <TwitterIcon />
-                <span className="sr-only">Twitter/X</span>
-              </a>
-            </div>
-          </div>
+ 
         </div>
       </div>
     </div>
