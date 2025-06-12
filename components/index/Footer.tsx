@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faShieldHalved, faStopwatch20, faCrown, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import '/styles/Footer.css'; // Add this import if you put the CSS in a separate file
 
@@ -25,7 +26,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer p-10 bg-base-200 text-base-content relative transition-colors duration-300 overflow-hidden">
+    <footer className="footer p-10 bg-base-200 text-base-content relative transition-colors duration-300 overflow-hidden z-10">
       <div className="footer-gradient-border"></div>
       {/* Background decoration - changed to use theme colors */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 pointer-events-none z-0"></div>
@@ -124,9 +125,9 @@ const Footer: React.FC = () => {
                 © {currentYear} - ACT91. All rights reserved.
               </p>
               <div className="flex items-center justify-center gap-6 text-xs mt-2"> {/* Added justify-center */}
-                <span>Built with ❤️ and React</span>
+                <span>Built with React Vite ❤️ </span>
                 <span className="opacity-50">•</span>
-                <span>Open to opportunities</span>
+                <span>I'm open to opportunities</span>
               </div>
             </div>
           </div>
@@ -135,5 +136,5 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
+   /* <span>Built with ❤️ and React</span> */
 export default Footer;
