@@ -1,41 +1,82 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import '/styles/Header.css';
 
-const Header: React.FC = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
-  const isActive = (path: string) => location.pathname === path;
+interface HeaderProps {
+  scrollToSection: (sectionRef: React.RefObject<HTMLDivElement>) => void;
+  homeRef: React.RefObject<HTMLDivElement>;
+  aboutRef: React.RefObject<HTMLDivElement>;
+  contactRef: React.RefObject<HTMLDivElement>;
+}
 
+const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, contactRef }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = '';
+  };
+  
+  const openMobileMenu = () => {
+    setIsMobileMenuOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+  
   const navLinks = [
-    { to: '/', label: 'Home' },
-    { to: '/about', label: 'About' },
-    { to: '/contact', label: 'Contact' },
+    { id: 'home', label: 'Home', ref: homeRef },
+    { id: 'about', label: 'About', ref: aboutRef },
+    { id: 'contact', label: 'Contact', ref: contactRef },
   ];
+
+  // Get current section based on scroll position
+  const [activeSection, setActiveSection] = useState('home');
+
+  // Add scroll event listener to track active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100; // Offset for header height
+      
+      // Check which section is in view
+      if (contactRef.current && scrollPosition >= contactRef.current.offsetTop) {
+        setActiveSection('contact');
+      } else if (aboutRef.current && scrollPosition >= aboutRef.current.offsetTop) {
+        setActiveSection('about');
+      } else {
+        setActiveSection('home');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  // Clean up overflow style when component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   return (
     <header className="navbar bg-base-100 fixed top-0 z-20 shadow-lg">
       <div className="navbar-start">
-        <Link
-          to="/"
+        <button
+          onClick={() => scrollToSection(homeRef)}
           className="btn btn-ghost text-xl font-bold header-link-gradient"
         >
           ACT91 Portfolio
-        </Link>
+        </button>
       </div>
       <div className="navbar-end">
         {/* Desktop menu */}
         <ul className="menu menu-horizontal px-1 hidden md:flex">
           {navLinks.map((link) => (
-            <li key={link.to}>
-              <Link
-                to={link.to}
-                className={`btn btn-ghost font-semibold text-base header-link-gradient${location.pathname === link.to ? ' active' : ''}`}
+            <li key={link.id}>
+              <button
+                onClick={() => scrollToSection(link.ref)}
+                className={`btn btn-ghost font-semibold text-base header-link-gradient${activeSection === link.id ? ' active' : ''}`}
               >
                 {link.label}
-              </Link>
+              </button>
             </li>
           ))}
         </ul>
@@ -53,7 +94,7 @@ const Header: React.FC = () => {
         <div className="md:hidden">
           <button
             className="btn btn-circle btn-ghost"
-            onClick={() => setIsMobileMenuOpen(true)}
+            onClick={openMobileMenu}
             aria-label="Open menu"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -92,20 +133,22 @@ const Header: React.FC = () => {
               </div>
 
               {/* Mobile Navigation */}
-              <nav className="flex flex-col p-10 space-y-2">
+              <nav className="flex flex-col p-4 space-y-2">
                 {navLinks.map((link) => (
-                  <Link 
-                    key={link.to}
-                    to={link.to} 
-                    className={`font-semibold py-4 px-10 rounded-lg border-l-4 transition-all duration-200 ${
-                      isActive(link.to) 
+                  <button 
+                    key={link.id}
+                    onClick={() => {
+                      scrollToSection(link.ref);
+                      closeMobileMenu();
+                    }}
+                    className={`font-semibold py-4 px-40 rounded-lg border-l-4 transition-all duration-200 text-left ${
+                      activeSection === link.id 
                         ? 'bg-base-200 border-l-primary header-link-gradient active' 
                         : 'border-l-transparent hover:bg-base-200'
                     }`}
-                    onClick={closeMobileMenu}
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 ))}
               </nav>
             </div>
