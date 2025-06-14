@@ -1,25 +1,24 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faShieldHalved, faStopwatch20, faCrown, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import '/styles/Footer.css'; // Add this import if you put the CSS in a separate file
 
 const platformLinks = [
   {
     name: 'GitHub',
-    url: 'https://github.com/yourusername',
+    url: 'https://github.com/ACT91',
     icon: faGithub,
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com/in/yourusername',
+    url: 'https://www.linkedin.com/in/stanley-gersom-623b272a5/',
     icon: faLinkedin,
   },
-  {
+ /* {
     name: 'Twitter/X',
     url: 'https://x.com/yourusername',
     icon: faXTwitter,
-  },
+  }, */
 ];
 
 const Footer: React.FC = () => {

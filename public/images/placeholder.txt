@@ -1,0 +1,5 @@
+Create a folder for your project images here. You'll need to add:
+- anti-stressor.png
+- image-to-pdf.png
+- phoneyanga.png
+- snake-game.png

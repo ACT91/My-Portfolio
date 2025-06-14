@@ -221,8 +221,8 @@ const MainContent: React.FC = () => {
                   }}
                 ></span>
                 {/* Profile image */}
-                <img
-                  src="/471511193_620921727059481_7134572200687933217_n.jpg"
+                <img 
+                  src="/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg"
                   alt="Stanley Gersom's profile"
                   className="relative w-45 h-45 rounded-full border-4 border-transparent object-cover z-30 animate-fade-in"
                   style={{}}

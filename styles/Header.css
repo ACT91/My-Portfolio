@@ -10,15 +10,7 @@
   -webkit-text-fill-color: transparent;
   animation: text-gradient-move 3s linear infinite;
 }
-.header-link-gradient:hover {
-  color: transparent !important;
-  background: linear-gradient(90deg, #f472b6, #38bdf8, #facc15, #f472b6);
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 3s linear infinite;
-}
+
 .header-link-gradient.active {
   color: transparent !important;
   background: linear-gradient(90deg, #f472b6, #38bdf8, #facc15, #f472b6);
@@ -28,6 +20,7 @@
   -webkit-text-fill-color: transparent;
   animation: header-link-gradient-move 2s linear infinite;
 }
+
 .header-link-gradient.active::after {
   content: '';
   position: absolute;
@@ -40,6 +33,7 @@
   background-size: 200% 200%;
   animation: header-link-gradient-move 2s linear infinite;
 }
+
 @keyframes header-link-gradient-move {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
@@ -59,5 +53,22 @@
   }
   100% {
     background-position: 0% center;
+  }
+}
+
+/* Fix for medium screens to prevent wrapping */
+@media (min-width: 768px) and (max-width: 850px) {
+  .navbar .btn {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  .navbar-start {
+    flex: 0 1 auto;
+  }
+  
+  .navbar-end {
+    flex: 1 1 auto;
+    justify-content: flex-end;
   }
 }

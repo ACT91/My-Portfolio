@@ -5,10 +5,11 @@ interface HeaderProps {
   scrollToSection: (sectionRef: React.RefObject<HTMLDivElement>) => void;
   homeRef: React.RefObject<HTMLDivElement>;
   aboutRef: React.RefObject<HTMLDivElement>;
+  projectsRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
 }
 
-const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, contactRef }) => {
+const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, projectsRef, contactRef }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const closeMobileMenu = () => {
@@ -24,6 +25,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, con
   const navLinks = [
     { id: 'home', label: 'Home', ref: homeRef },
     { id: 'about', label: 'About', ref: aboutRef },
+    { id: 'projects', label: 'Projects', ref: projectsRef },
     { id: 'contact', label: 'Contact', ref: contactRef },
   ];
 
@@ -38,6 +40,8 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, con
       // Check which section is in view
       if (contactRef.current && scrollPosition >= contactRef.current.offsetTop) {
         setActiveSection('contact');
+      } else if (projectsRef.current && scrollPosition >= projectsRef.current.offsetTop) {
+        setActiveSection('projects');
       } else if (aboutRef.current && scrollPosition >= aboutRef.current.offsetTop) {
         setActiveSection('about');
       } else {
@@ -68,12 +72,12 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, con
       </div>
       <div className="navbar-end">
         {/* Desktop menu */}
-        <ul className="menu menu-horizontal px-1 hidden md:flex">
+        <ul className="menu menu-horizontal px-1 hidden md:flex flex-nowrap">
           {navLinks.map((link) => (
             <li key={link.id}>
               <button
                 onClick={() => scrollToSection(link.ref)}
-                className={`btn btn-ghost font-semibold text-base header-link-gradient${activeSection === link.id ? ' active' : ''}`}
+                className={`btn btn-ghost font-semibold text-sm md:text-base header-link-gradient${activeSection === link.id ? ' active' : ''}`}
               >
                 {link.label}
               </button>
@@ -141,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, con
                       scrollToSection(link.ref);
                       closeMobileMenu();
                     }}
-                    className={`font-semibold py-4 px-40 rounded-lg border-l-4 transition-all duration-200 text-left ${
+                    className={`font-semibold py-4 px-4 rounded-lg border-l-4 transition-all duration-200 text-left ${
                       activeSection === link.id 
                         ? 'bg-base-200 border-l-primary header-link-gradient active' 
                         : 'border-l-transparent hover:bg-base-200'

@@ -5,6 +5,8 @@ import Footer from '../components/index/Footer';
 import MainContent from '../components/index/MainContent';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
+import Projects from '../pages/Projects';
+import ScrollIndicator from '../components/ScrollIndicator';
 import '../styles/App.css';
 import '../styles/Header.css';
 import '../styles/Footer.css';
@@ -12,6 +14,7 @@ import '../styles/Footer.css';
 const App: React.FC = () => {
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
@@ -25,6 +28,7 @@ const App: React.FC = () => {
           scrollToSection={scrollToSection}
           homeRef={homeRef as React.RefObject<HTMLDivElement>}
           aboutRef={aboutRef as React.RefObject<HTMLDivElement>}
+          projectsRef={projectsRef as React.RefObject<HTMLDivElement>}
           contactRef={contactRef as React.RefObject<HTMLDivElement>}
         />
         <main className="flex-grow pt-16">
@@ -33,6 +37,9 @@ const App: React.FC = () => {
           </div>
           <div ref={aboutRef} id="about" className="min-h-screen">
             <About />
+          </div>
+          <div ref={projectsRef} id="projects" className="min-h-screen">
+            <Projects />
           </div>
           <div ref={contactRef} id="contact" className="min-h-screen">
             <Contact />
