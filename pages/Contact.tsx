@@ -1,6 +1,7 @@
 import MapContainer from '../components/GoogleMap/GoogleMap'; // Adjust the import path as necessary
 import { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import MyDetails from '../constants/MyDetails';
 
 const Contact: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -60,7 +61,7 @@ const Contact: React.FC = () => {
         <div className="hero-content text-center w-full">
           <div className="w-full max-w-3xl mx-auto">
             <h1 className="text-4xl font-bold text-primary">Contact Me</h1>
-            <p className="mt-4 mb-8">Reach out for collaborations or inquiries!</p>
+            <p className="mt-4 mb-8">Reach out to {MyDetails.name} for collaborations or inquiries!</p>
             <div className="card bg-base-100 shadow-xl">
               {submitStatus && (
                 <div

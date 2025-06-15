@@ -1,27 +1,41 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import '/styles/Footer.css'; // Add this import if you put the CSS in a separate file
+import MyDetails from '../../constants/MyDetails';
 
 const platformLinks = [
   {
     name: 'GitHub',
-    url: 'https://github.com/ACT91',
+    url: MyDetails.github.profile,
     icon: faGithub,
   },
   {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/stanley-gersom-623b272a5/',
+    url: MyDetails.socialMedia.linkedin,
     icon: faLinkedin,
   },
  /* {
     name: 'Twitter/X',
-    url: 'https://x.com/yourusername',
+    url: MyDetails.socialMedia.twitter,
     icon: faXTwitter,
   }, */
 ];
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  scrollToSection?: (sectionRef: React.RefObject<HTMLDivElement>) => void;
+  homeRef?: React.RefObject<HTMLDivElement>;
+  aboutRef?: React.RefObject<HTMLDivElement>;
+  projectsRef?: React.RefObject<HTMLDivElement>;
+  contactRef?: React.RefObject<HTMLDivElement>;
+}
+
+const Footer: React.FC<FooterProps> = ({
+  scrollToSection,
+  homeRef,
+  aboutRef,
+  projectsRef,
+  contactRef
+}) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -36,7 +50,7 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="mb-6">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
-                Stanley Gersom
+                {MyDetails.fullName}
               </h3>
               <p className="text-base-content text-sm leading-relaxed max-w-md">
                 Full-stack developer crafting digital experiences with modern technologies. 
@@ -77,17 +91,18 @@ const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-2">
                 {[
-                  { to: '/', label: 'Home' },
-                  { to: '/about', label: 'About' },
-                  { to: '/contact', label: 'Contact' }
+                  { ref: homeRef, label: 'Home' },
+                  { ref: aboutRef, label: 'About' },
+                  { ref: projectsRef, label: 'Projects' },
+                  { ref: contactRef, label: 'Contact' }
                 ].map((link, index) => (
                   <li key={index}>
-                    <Link
-                      to={link.to}
+                    <button
+                      onClick={() => scrollToSection && link.ref && scrollToSection(link.ref)}
                       className="link link-hover hover:text-primary transition-colors duration-200 text-sm"
                     >
                       {link.label}
-                    </Link>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -102,10 +117,10 @@ const Footer: React.FC = () => {
                 <div>
                   <p className="text-xs uppercase tracking-wide mb-1">Email</p>
                   <a 
-                    href="mailto:stanley.gersom@gmail.com" 
+                    href={`mailto:${MyDetails.email}`}
                     className="link link-hover text-sm hover:text-primary transition-colors duration-200 email-pulse"
                   >
-                    stanleygersom@gmail.com
+                    {MyDetails.email}
                   </a>
                 </div>
                 <div>
@@ -117,11 +132,13 @@ const Footer: React.FC = () => {
           </div>
         </div>
         {/* Bottom Section */}
-        <div className="mt-16 pt-8 border-t border-base-300 w-full"> {/* Added w-full */}
+        <div className="mt-16 pt-8 border-t border-base-3 w-full"> {/* Added w-full */}
           <div className="flex flex-col items-center justify-center text-center gap-4 w-full"> {/* Added w-full */}
             <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto"> {/* Added container */}
-              <p className="text-sm">
-                © {currentYear} - ACT91. All rights reserved.
+              <p className="text-sm flex items-center justify-center gap-2">
+                © {currentYear} - {MyDetails.nickname}
+                <span className="inline-block w-4 h-px bg-base-content"></span>
+                All rights reserved.
               </p>
               <div className="flex items-center justify-center gap-6 text-xs mt-2"> {/* Added justify-center */}
                 <span>Built with React Vite ❤️ </span>

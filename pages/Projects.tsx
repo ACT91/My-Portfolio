@@ -1,4 +1,5 @@
 import React from 'react';
+import MyDetails from '../constants/MyDetails';
 
 type Project = {
   id: number;
@@ -15,7 +16,7 @@ const Projects: React.FC = () => {
       id: 1,
       title: "ANTI-STRESSOR",
       description: "This is Anti-Stressor App that pops up jokes according to your hobby so that it can make you smile. It detects your smile using camera.",
-      imageUrl: "/images/anti-stressor.png", // Replace with actual image path
+      imageUrl: "/images/projects/Anti-stressor.png", // Replace with actual image path
       githubUrl: "https://github.com/ACT91/ANTI-STRESSOR",
       language: "JavaScript"
     },
@@ -23,7 +24,7 @@ const Projects: React.FC = () => {
       id: 2,
       title: "IMAGE-TO-PDF-CONVERTER",
       description: "Converts your Image to a PDF. Created after finding that most apps on Google Play Store require payment despite watching ads.",
-      imageUrl: "/images/image-to-pdf.png", // Replace with actual image path
+      imageUrl: "/images/projects/image-to-pdf.png", // Replace with actual image path
       githubUrl: "https://github.com/ACT91/IMAGE-TO-PDF-CONVERTER",
       language: "TypeScript"
     },
@@ -31,14 +32,14 @@ const Projects: React.FC = () => {
       id: 3,
       title: "PhoneYANGA",
       description: "A web application that retrieves necessary information including Messages, Phone's Battery Info, New Notifications etc. from your Phone when you can't access it physically.",
-      imageUrl: "/images/phoneyanga.png", // Replace with actual image path
+      imageUrl: "/images/projects/PhoneYangaDashboard.png", // Replace with actual image path
       githubUrl: "https://github.com/ACT91/PhoneYANGA",
       language: "TypeScript"
     },
   ];
 
   return (
-    <section className="py-12 px-4 bg-base-200">
+    <section className="pt-1 pb-12 px-4 bg-base-200">
       <div className="container mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">My Projects</h2>
         
@@ -69,6 +70,17 @@ const Projects: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="flex justify-center mt-12">
+          <a 
+            href={MyDetails.github.repositories} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="btn btn-lg btn-secondary"
+          >
+            See More Projects
+          </a>
         </div>
       </div>
     </section>

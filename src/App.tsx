@@ -6,7 +6,7 @@ import MainContent from '../components/index/MainContent';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Projects from '../pages/Projects';
-import ScrollIndicator from '../components/ScrollIndicator';
+import InstallPWAToast from './InstallPWAToast';
 import '../styles/App.css';
 import '../styles/Header.css';
 import '../styles/Footer.css';
@@ -18,12 +18,20 @@ const App: React.FC = () => {
   const contactRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
-    sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    const headerOffset = 80; // Approximate header height
+    const elementPosition = sectionRef.current?.getBoundingClientRect().top || 0;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
   };
 
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+        <InstallPWAToast />
         <Header 
           scrollToSection={scrollToSection}
           homeRef={homeRef as React.RefObject<HTMLDivElement>}
@@ -38,14 +46,20 @@ const App: React.FC = () => {
           <div ref={aboutRef} id="about" className="min-h-screen">
             <About />
           </div>
-          <div ref={projectsRef} id="projects" className="min-h-screen">
+          <div ref={projectsRef} id="projects">
             <Projects />
           </div>
           <div ref={contactRef} id="contact" className="min-h-screen">
             <Contact />
           </div>
         </main>
-        <Footer />
+        <Footer 
+          scrollToSection={scrollToSection}
+          homeRef={homeRef}
+          aboutRef={aboutRef}
+          projectsRef={projectsRef}
+          contactRef={contactRef}
+        />
       </div>
     </Router>
   );

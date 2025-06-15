@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShieldHalved, faStopwatch20, faCrown, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
+import EducationTimeline from './EducationTimeline';
 import '/styles/About.css';
 
 // Animated Icons with FontAwesome
@@ -104,6 +105,7 @@ const About: React.FC = () => {
                   <li>HTML</li>
                   <li>CSS</li>
                   <li>JavaScript</li>
+                  <li>TypeScript</li>
                   <li>Tailwind CSS( Daisyui ) </li>
                 </ul>
               </div>
@@ -111,17 +113,18 @@ const About: React.FC = () => {
                 <h3 className="font-semibold text-secondary text-lg mb-2">Backend Development</h3>
                 <ul className="list-disc list-inside mt-2 space-y-1">
                   <li>C#</li>
+                  <li>Php</li>
                    <li>Firebase</li>
                   <li>Python</li>
-                  <li>Kotlin</li>
+                  
                   <li>MySQL</li>
                 </ul>
               </div>
               <div className="card bg-gradient-to-br from-base-100 to-base-200 shadow-md p-6 hover:shadow-lg transition-all duration-300 card-hover-effect">
                 <h3 className="font-semibold text-accent text-lg mb-2">Mobile Development</h3>
                 <ul className="list-disc list-inside mt-2 space-y-1">
-                  <li>Flutter</li>
-                  <li>Android Studio</li>
+                  <li>Dart & Flutter  ( VS Code ) </li>
+                  <li>Kotlin ( Android Studio ) </li>
                 </ul>
               </div>
               <div className="card bg-gradient-to-br from-base-100 to-base-200 shadow-md p-6 hover:shadow-lg transition-all duration-300 card-hover-effect">
@@ -137,6 +140,11 @@ const About: React.FC = () => {
                 </ul>
               </div>
             </div>
+          </div>
+          
+          <div className="mt-12">
+            <h2 className="text-2xl font-semibold mb-8 bg-gradient-to-r from-secondary to-accent bg-clip-text text-center text-transparent">My Education Journey</h2>
+            <EducationTimeline />
           </div>
         </div>
       </div>
