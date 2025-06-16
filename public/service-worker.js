@@ -1,12 +1,11 @@
 // Cache name with version
-const CACHE_NAME = 'stanleygersom-portfolio-v1';
+const CACHE_NAME = 'stanleygersom-portfolio-v2';
 
 // Files to cache
 const urlsToCache = [
   '/',
   '/index.html',
-  '/manifest.json',
-  '/Stanley Gersom (ACT91) _ Portfolio_files/471511193_620921727059481_7134572200687933217_n.jpg'
+  '/manifest.json'
 ];
 
 // Install service worker
@@ -23,6 +22,11 @@ self.addEventListener('install', event => {
 
 // Cache and return requests
 self.addEventListener('fetch', event => {
+  // Don't cache hashed assets - let Vite handle them
+  if (event.request.url.includes('assets/')) {
+    return;
+  }
+  
   event.respondWith(
     caches.match(event.request)
       .then(response => {
@@ -30,7 +34,12 @@ self.addEventListener('fetch', event => {
         if (response) {
           return response;
         }
-        return fetch(event.request);
+        return fetch(event.request).catch(() => {
+          // If fetch fails, return the offline page
+          if (event.request.mode === 'navigate') {
+            return caches.match('/index.html');
+          }
+        });
       })
   );
 });
