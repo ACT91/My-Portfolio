@@ -55,10 +55,10 @@ const App: React.FC = () => {
         </main>
         <Footer 
           scrollToSection={scrollToSection}
-          homeRef={homeRef}
-          aboutRef={aboutRef}
-          projectsRef={projectsRef}
-          contactRef={contactRef}
+          homeRef={homeRef as React.RefObject<HTMLDivElement>}
+          aboutRef={aboutRef as React.RefObject<HTMLDivElement>}
+          projectsRef={projectsRef as React.RefObject<HTMLDivElement>}
+          contactRef={contactRef as React.RefObject<HTMLDivElement>}
         />
       </div>
     </Router>

@@ -98,7 +98,7 @@ const Footer: React.FC<FooterProps> = ({
                 ].map((link, index) => (
                   <li key={index}>
                     <button
-                      onClick={() => scrollToSection && link.ref && scrollToSection(link.ref)}
+                      onClick={() => scrollToSection && link.ref && scrollToSection(link.ref as React.RefObject<HTMLDivElement>)}
                       className="link link-hover hover:text-primary transition-colors duration-200 text-sm"
                     >
                       {link.label}

@@ -6,7 +6,7 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/manifest.json',
-  '/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg'
+  '/Stanley Gersom (ACT91) _ Portfolio_files/471511193_620921727059481_7134572200687933217_n.jpg'
 ];
 
 // Install service worker
