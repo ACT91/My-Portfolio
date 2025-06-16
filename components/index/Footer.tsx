@@ -23,10 +23,10 @@ const platformLinks = [
 
 interface FooterProps {
   scrollToSection?: (sectionRef: React.RefObject<HTMLDivElement>) => void;
-  homeRef?: React.RefObject<HTMLDivElement>;
-  aboutRef?: React.RefObject<HTMLDivElement>;
-  projectsRef?: React.RefObject<HTMLDivElement>;
-  contactRef?: React.RefObject<HTMLDivElement>;
+  homeRef?: React.RefObject<HTMLDivElement | null>;
+  aboutRef?: React.RefObject<HTMLDivElement | null>;
+  projectsRef?: React.RefObject<HTMLDivElement | null>;
+  contactRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 const Footer: React.FC<FooterProps> = ({
