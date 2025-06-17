@@ -1,18 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ChatbotWidget: React.FC = () => {
-  useEffect(() => {
-    // Load Elfsight script
-    const script = document.createElement('script');
-    script.src = "https://static.elfsight.com/platform/platform.js";
-    script.async = true;
-    document.body.appendChild(script);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
-    return () => {
-      // Clean up script when component unmounts
-      document.body.removeChild(script);
-    };
+  useEffect(() => {
+    // Check if script already exists to prevent duplicates
+    const existingScript = document.querySelector('script[src="https://static.elfsight.com/platform/platform.js"]');
+    
+    if (!existingScript) {
+      // Load Elfsight script
+      const script = document.createElement('script');
+      script.src = "https://static.elfsight.com/platform/platform.js";
+      script.async = true;
+      script.onload = () => setScriptLoaded(true);
+      document.body.appendChild(script);
+      
+      // Don't remove the script on unmount as it might be needed by other components
+      return () => {
+        // We intentionally don't remove the script to avoid issues with the widget
+      };
+    } else {
+      setScriptLoaded(true);
+    }
   }, []);
+
+  // Add a small delay to ensure the widget initializes properly
+  useEffect(() => {
+    if (scriptLoaded && window.elfsight) {
+      setTimeout(() => {
+        if (window.elfsight && window.elfsight.reinit) {
+          window.elfsight.reinit();
+        }
+      }, 100);
+    }
+  }, [scriptLoaded]);
 
   return (
     <div 
@@ -21,5 +42,14 @@ const ChatbotWidget: React.FC = () => {
     ></div>
   );
 };
+
+// Add this to make TypeScript happy
+declare global {
+  interface Window {
+    elfsight?: {
+      reinit: () => void;
+    };
+  }
+}
 
 export default ChatbotWidget;
