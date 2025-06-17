@@ -28,3 +28,6 @@ dist-ssr
 .env
 .env.local
 .env.development.local
+
+# Sensitive data
+constants/portfolioData.json

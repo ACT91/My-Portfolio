@@ -10,7 +10,7 @@ const MyDetails = {
     repositories: "https://github.com/ACT91?tab=repositories"
   },
   socialMedia: {
-    linkedin: "https://linkedin.com/in/yourprofile", // Replace with your actual LinkedIn
+    linkedin: "https://www.linkedin.com/in/stanley-gersom/", // Replace with your actual LinkedIn
    // twitter: "https://twitter.com/yourhandle", // Replace with your actual Twitter
   },
   about: {

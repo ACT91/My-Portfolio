@@ -7,6 +7,7 @@ import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Projects from '../pages/Projects';
 import InstallPWAToast from './InstallPWAToast';
+import ChatbotWidget from '../components/ChatbotWidget';
 import '../styles/App.css';
 import '../styles/Header.css';
 import '../styles/Footer.css';
@@ -32,6 +33,7 @@ const App: React.FC = () => {
     <Router>
       <div className="flex flex-col min-h-screen">
         <InstallPWAToast />
+        <ChatbotWidget />
         <Header 
           scrollToSection={scrollToSection}
           homeRef={homeRef as React.RefObject<HTMLDivElement>}
