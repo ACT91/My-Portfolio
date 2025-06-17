@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from '../components/index/Header';
 import Footer from '../components/index/Footer';
@@ -11,12 +11,19 @@ import ChatbotWidget from '../components/ChatbotWidget';
 import '../styles/App.css';
 import '../styles/Header.css';
 import '../styles/Footer.css';
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import { VERSION } from './version';
 
 const App: React.FC = () => {
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  
+  // Log version to ensure new build is deployed
+  useEffect(() => {
+    console.log(`App version: ${VERSION}`);
+  }, []);
 
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement>) => {
     const headerOffset = 80; // Approximate header height
@@ -62,6 +69,7 @@ const App: React.FC = () => {
           projectsRef={projectsRef as React.RefObject<HTMLDivElement>}
           contactRef={contactRef as React.RefObject<HTMLDivElement>}
         />
+         <SpeedInsights />
       </div>
     </Router>
   );

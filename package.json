@@ -16,6 +16,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@react-google-maps/api": "^2.20.6",
     "@tailwindcss/vite": "^4.1.7",
+    "@vercel/speed-insights": "^1.2.0",
     "daisyui": "^5.0.37",
     "lucide-react": "^0.511.0",
     "next": "^15.3.2",
