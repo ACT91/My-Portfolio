@@ -23,6 +23,12 @@
     "command": "npm run build",
     "outputDirectory": "dist"
   },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
     { "handle": "filesystem" },
     { "src": "/assets/(.*)", "dest": "/assets/$1" },
