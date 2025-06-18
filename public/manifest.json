@@ -1,6 +1,10 @@
 {
   "short_name": "ACT91 Portfolio",
   "name": "Stanley Gersom Portfolio",
+  "lang": "en-US",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "categories": ["portfolio", "development", "programming"],
   "icons": [
     {
       "src": "/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
