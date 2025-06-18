@@ -6,11 +6,21 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    react()],
+    react()
+  ],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     // Ensure source maps are generated
-    sourcemap: true
+    sourcemap: true,
+    // Ensure assets have consistent hashing
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+        entryFileNames: 'assets/[name].[hash].js',
+        chunkFileNames: 'assets/[name].[hash].js',
+        assetFileNames: 'assets/[name].[hash].[ext]'
+      }
+    }
   }
 })

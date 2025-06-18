@@ -3,13 +3,13 @@
   "name": "Stanley Gersom Portfolio",
   "icons": [
     {
-      "src": "Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
+      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
+      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any maskable"
@@ -25,7 +25,7 @@
   "description": "Portfolio of Stanley Gersom (ACT91), a skilled programmer and cyber security enthusiast",
   "screenshots": [
     {
-      "src": "Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
+      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
       "type": "image/jpeg",
       "sizes": "540x720"
     }

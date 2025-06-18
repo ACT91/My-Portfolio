@@ -1,2 +1,7 @@
 # Ignore files that shouldn't be deployed
 README.md
+node_modules
+.git
+.github
+.vscode
+*.log
