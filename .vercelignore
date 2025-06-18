@@ -1,6 +1,6 @@
 # Ignore files that shouldn't be deployed
 README.md
-.git
+
 .gitignore
 .env.local
 .env.development.local

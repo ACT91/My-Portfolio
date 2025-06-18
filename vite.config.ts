@@ -7,4 +7,10 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    // Ensure source maps are generated
+    sourcemap: true
+  }
 })

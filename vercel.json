@@ -19,6 +19,13 @@
   "build": {
     "env": {
       "VERCEL_FORCE_NO_CACHE": "1"
-    }
-  }
+    },
+    "command": "npm run build",
+    "outputDirectory": "dist"
+  },
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/assets/(.*)", "dest": "/assets/$1" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
