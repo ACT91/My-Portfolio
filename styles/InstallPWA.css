@@ -6,22 +6,34 @@
   animation: pulse 2s infinite;
   transition: all 0.3s ease;
   transform-origin: center;
-  box-shadow: 0 0 15px rgba(100, 25, 230, 0.7);
+  background: linear-gradient(135deg, #6419E6 0%, #19E6B6 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 15px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(100, 25, 230, 0.5);
+}
+
+.install-button:hover {
+  background: linear-gradient(135deg, #7929FF 0%, #29FFD6 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(100, 25, 230, 0.7);
 }
 
 @keyframes pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(100, 25, 230, 0.7);
+    box-shadow: 0 4px 15px rgba(100, 25, 230, 0.5);
   }
   
   70% {
     transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(100, 25, 230, 0);
+    box-shadow: 0 0 20px rgba(25, 230, 182, 0.7);
   }
   
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(100, 25, 230, 0);
+    box-shadow: 0 4px 15px rgba(100, 25, 230, 0.5);
   }
 }

@@ -11,7 +11,7 @@ import ChatbotWidget from '../components/ChatbotWidget';
 import '../styles/App.css';
 import '../styles/Header.css';
 import '../styles/Footer.css';
-import { SpeedInsights } from "@vercel/speed-insights/react";
+
 import { VERSION } from './version';
 
 const App: React.FC = () => {
@@ -69,7 +69,7 @@ const App: React.FC = () => {
           projectsRef={projectsRef as React.RefObject<HTMLDivElement>}
           contactRef={contactRef as React.RefObject<HTMLDivElement>}
         />
-         <SpeedInsights />
+      
       </div>
     </Router>
   );

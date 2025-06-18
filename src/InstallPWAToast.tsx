@@ -56,7 +56,7 @@ const InstallPWAToast: React.FC = () => {
     <div className="toast toast-end z-50">
       <div className="alert alert-info shadow-lg">
         <div>
-          <span>Install this app on your device!</span>
+          <span>Install this app for better experience </span>
           <button onClick={handleInstall} className="btn btn-sm btn-primary">
             Install
           </button>
