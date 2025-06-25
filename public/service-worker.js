@@ -1,5 +1,5 @@
 // Cache name with version
-const CACHE_NAME = 'stanleygersom-portfolio-v3';
+const CACHE_NAME = 'stanleygersom-portfolio-v4';
 
 // Files to cache
 const urlsToCache = [
