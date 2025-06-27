@@ -37,3 +37,10 @@ button.install-button:hover {
     box-shadow: 0 4px 15px rgba(13, 4, 63, 0.5);
   }
 }
+
+.install-button-container {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 9999;
+}

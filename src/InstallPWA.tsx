@@ -56,7 +56,7 @@ const InstallPWA: React.FC = () => {
   return (
     <div className="install-button-container">
       <button
-        className="install-button"
+        className="btn btn-primary install-button"
         onClick={handleInstallClick}
       >
         Install App
