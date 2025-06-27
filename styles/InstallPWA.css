@@ -1,3 +1,4 @@
+/* Updated v1.2 */
 button.install-button {
   position: fixed;
   bottom: 1rem;
@@ -36,4 +37,11 @@ button.install-button:hover {
     transform: scale(1);
     box-shadow: 0 4px 15px rgba(13, 4, 63, 0.5);
   }
+}
+
+.install-button-container {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 9999;
 }
