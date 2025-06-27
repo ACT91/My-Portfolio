@@ -8,15 +8,15 @@
   "categories": ["portfolio", "development", "programming"],
   "icons": [
     {
-      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
+      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/BackgroundEraser_20250625_234611653.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
+      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/BackgroundEraser_20250625_234611653.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
@@ -30,8 +30,8 @@
   "description": "Portfolio of Stanley Gersom (ACT91), a skilled programmer and cyber security enthusiast",
   "screenshots": [
     {
-      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/IMG20250320_065938.jpeg",
-      "type": "image/jpeg",
+      "src": "/Stanley Gersom (ACT91) _ Portfolio_files/BackgroundEraser_20250625_234611653.png",
+      "type": "image/png",
       "sizes": "540x720"
     }
   ]
