@@ -1,4 +1,4 @@
-.install-button {
+button.install-button {
   position: fixed;
   bottom: 1rem;
   left: 1rem; /* Changed from right to left */
@@ -6,17 +6,17 @@
   animation: pulse 2s infinite;
   transition: all 0.3s ease;
   transform-origin: center;
-  background: linear-gradient(135deg, #0A3166 0%, #0D043F 100%);
+  background: linear-gradient(135deg, #0A3166 0%, #0D043F 100%) !important;
   border: none;
   border-radius: 12px;
   padding: 10px 15px;
-  color: white;
+  color: white !important;
   font-weight: bold;
   box-shadow: 0 4px 15px rgba(13, 4, 63, 0.5);
 }
 
-.install-button:hover {
-  background: linear-gradient(135deg, #0A3166 0%, #1A0A7F 100%);
+button.install-button:hover {
+  background: linear-gradient(135deg, #0A3166 0%, #1A0A7F 100%) !important;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(13, 4, 63, 0.7);
 }
