@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
   return (
     <section className="pt-1 pb-12 px-4 bg-base-200">
       <div className="container mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-12">My Projects</h2>
+        <h2 className="text-4xl font-bold text-center mt-10 mb-12">My Projects</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (

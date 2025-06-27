@@ -178,7 +178,7 @@ const MainContent: React.FC = () => {
   const visibleSkills = showAll ? skills : skills.slice(0, VISIBLE_COUNT);
 
   return (
-    <div className="hero min-h-screen bg-base-200 pt-24 mb-20">
+    <div className="hero min-h-screen bg-base-200 pt-24">
       <div className="hero-content text-center">
         <div className="max-w-4xl w-full">
           {/* Profile Section with background image */}
@@ -257,7 +257,7 @@ const MainContent: React.FC = () => {
           
           {/* Solid divider line above skills heading */}
           <div className="w-full my-8">
-            <div className="h-[2px] w-4/5 max-w-2xl mx-auto bg-black dark:bg-white rounded"></div>
+            <div className="h-[2px] w-4/5 max-w-2xl mx-auto bg-base-content rounded"></div>
           </div>
           {/* Skills Section Heading */}
           <h2 className="text-3xl font-bold mb-6 text-center">My Programming Languages & Tools</h2>
@@ -280,7 +280,7 @@ const MainContent: React.FC = () => {
           </div>
           {/* Show More / Show Less Button */}
           {skills.length > VISIBLE_COUNT && (
-            <div className="flex justify-center mt-4">
+            <div className="flex flex-col items-center mt-4">
               <button
                 className="btn btn-ghost btn-circle text-3xl"
                 onClick={() => setShowAll((prev) => !prev)}
@@ -291,6 +291,9 @@ const MainContent: React.FC = () => {
                   className={showAll ? 'bounce-up' : 'bounce-down'}
                 />
               </button>
+              <span className="mt-2 mb-7 text-base font-semibold text-base-content">
+                {showAll ? 'SHOW LESS' : 'SHOW MORE'}
+              </span>
             </div>
           )}
         </div>

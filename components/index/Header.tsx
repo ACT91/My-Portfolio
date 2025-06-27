@@ -145,7 +145,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, pro
                       scrollToSection(link.ref);
                       closeMobileMenu();
                     }}
-                    className={`font-semibold py-4 px-4 rounded-lg border-l-4 transition-all duration-200 text-left ${
+                    className={`font-semibold py-3 px-8 rounded-lg border-l-4 transition-all duration-200 text-left ${
                       activeSection === link.id 
                         ? 'bg-base-200 border-l-primary header-link-gradient active' 
                         : 'border-l-transparent hover:bg-base-200'

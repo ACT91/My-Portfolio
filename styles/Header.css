@@ -3,7 +3,7 @@
   z-index: 1;
   transition: color 0.2s;
   color: transparent !important;
-  background: linear-gradient(90deg, #38bdf8, #f472b6, #38bdf8);
+   background: linear-gradient(90deg, blue, red, blue);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -13,7 +13,7 @@
 
 .header-link-gradient.active {
   color: transparent !important;
-  background: linear-gradient(90deg, #f472b6, #38bdf8, #facc15, #f472b6);
+  background: linear-gradient(90deg, blue, red, blue);
   background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -29,19 +29,19 @@
   bottom: -2px;
   height: 2px;
   border-radius: 2px;
-  background: linear-gradient(90deg, #f472b6, #38bdf8, #facc15, #f472b6);
+  background: linear-gradient(90deg, blue, red, blue);
   background-size: 200% 200%;
   animation: header-link-gradient-move 2s linear infinite;
 }
 
 @keyframes header-link-gradient-move {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes text-gradient-move {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% { background-position: 200% center; }
+  100% { background-position: 0% center; }
 }
 
 @keyframes gradientMove {
@@ -59,8 +59,8 @@
 /* Fix for medium screens to prevent wrapping */
 @media (min-width: 768px) and (max-width: 850px) {
   .navbar .btn {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
   
   .navbar-start {

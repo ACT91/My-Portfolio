@@ -96,7 +96,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <div className="mt-8">
-            <h2 className="text-2xl font-semibold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-center text-transparent">Technical Skills & Tools</h2>
+            <h2 className="text-2xl font-semibold mt-8 mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-center text-transparent">Technical Skills & Tools</h2>
             <div className="space-y-4">
               <div className="card bg-gradient-to-br from-base-100 to-base-200 shadow-md p-6 hover:shadow-lg transition-all duration-300 card-hover-effect">
                 <h3 className="font-semibold text-primary text-lg mb-2">Frontend Development</h3>
@@ -142,7 +142,7 @@ const About: React.FC = () => {
             </div>
           </div>
           
-          <div className="mt-12">
+          <div className="mt-15">
             <h2 className="text-2xl font-semibold mb-8 bg-gradient-to-r from-secondary to-accent bg-clip-text text-center text-transparent">My Education Journey</h2>
             <EducationTimeline />
           </div>

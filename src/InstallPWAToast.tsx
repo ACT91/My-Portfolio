@@ -21,7 +21,7 @@ const InstallPWAToast: React.FC = () => {
       // Hide toast after 6 seconds
       setTimeout(() => {
         setShowToast(false);
-      }, 6000);
+      }, 8000);
     };
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
