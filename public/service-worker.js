@@ -1,5 +1,5 @@
 // Cache name with version
-const CACHE_NAME = 'stanleygersom-portfolio-v9';
+const CACHE_NAME = 'stanleygersom-portfolio-v10';
 
 // Files to cache
 const urlsToCache = [
@@ -32,16 +32,11 @@ self.addEventListener('fetch', event => {
     return;
   }
   
-  // For assets, try network first, then cache
+  // For assets, always fetch fresh (no caching for CSS/JS)
   if (event.request.url.includes('/assets/')) {
     event.respondWith(
       fetch(event.request)
         .then(response => {
-          // Cache the fetched response
-          const responseToCache = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, responseToCache);
-          });
           return response;
         })
         .catch(() => {
