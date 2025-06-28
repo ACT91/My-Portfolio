@@ -1,54 +1,121 @@
-# React + TypeScript + Vite
+# Stanley Gersom Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio website built with React, TypeScript, and Tailwind CSS. Features a Progressive Web App (PWA) with offline capabilities and installable functionality.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit the live portfolio: [stanleygersom.vercel.app](https://stanleygersom.vercel.app)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Responsive Design**: Optimized for all device sizes
+- **Progressive Web App (PWA)**: Installable with offline support
+- **Modern Tech Stack**: React 19, TypeScript, Tailwind CSS
+- **Interactive Components**: Smooth animations and transitions
+- **Contact Integration**: EmailJS for contact form functionality
+- **Google Maps Integration**: Interactive location display
+- **Performance Optimized**: Vercel Speed Insights integration
+- **SEO Friendly**: Meta tags and Open Graph support
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🛠️ Tech Stack
+
+- **Frontend**: React 19, TypeScript
+- **Styling**: Tailwind CSS, DaisyUI
+- **Build Tool**: Vite
+- **Deployment**: Vercel
+- **Icons**: React Icons, FontAwesome, Lucide React
+- **Maps**: Google Maps API
+- **Email**: EmailJS
+- **PWA**: Service Worker, Web App Manifest
+
+## 📦 Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/ACT91/My-Portfolio.git
+cd my_portfolio
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Create a `.env` file and add your environment variables:
+```env
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+VITE_GOOGLE_MAPS_API_KEY=your_google_maps_key
+```
+
+4. Start the development server:
+```bash
+npm run dev
+```
+
+## 🚀 Deployment
+
+The project is configured for easy deployment on Vercel:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically with each push
+
+## 📱 PWA Features
+
+- **Installable**: Users can install the app on their devices
+- **Offline Support**: Service worker caches essential resources
+- **App-like Experience**: Standalone display mode
+- **Custom Install Button**: Animated install prompt
+
+## 🎨 Customization
+
+### Colors
+- Primary: `#200058`
+- Background: `#ffffff`
+- Theme colors can be modified in `tailwind.config.js` and `manifest.json`
+
+### Content
+- Update personal information in `constants/MyDetails.ts`
+- Modify project data in the respective component files
+- Replace images in the `public/images/` directory
+
+## 📁 Project Structure
+
+```
+my_portfolio/
+├── src/
+│   ├── components/         # Reusable components
+│   ├── pages/             # Page components
+│   ├── constants/         # Configuration and data
+│   └── assets/           # Static assets
+├── public/               # Public assets
+├── styles/              # CSS files
+└── vercel.json         # Vercel configuration
+```
+
+## 🔧 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👨‍💻 Author
+
+**Stanley Gersom (ACT91)**
+- Portfolio: [stanleygersom.vercel.app](https://stanleygersom.vercel.app)
+- GitHub: [@ACT91](https://github.com/ACT91)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/ACT91/My-Portfolio/issues).
+
+## ⭐ Show your support
+
+Give a ⭐️ if this project helped you!
