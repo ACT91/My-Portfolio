@@ -85,14 +85,56 @@ The project is configured for easy deployment on Vercel:
 
 ```
 my_portfolio/
+├── components/
+│   └── index/
+│       ├── Footer.tsx
+│       ├── Header.tsx
+│       └── MainContent.tsx
+├── constants/
+│   └── MyDetails.ts
+├── pages/
+│   ├── About.tsx
+│   ├── Contact.tsx
+│   ├── EducationTimeline.tsx
+│   └── Projects.tsx
+├── public/
+│   ├── images/
+│   │   └── placeholder.txt
+│   ├── manifest.json
+│   ├── service-worker.js
+│   └── Stanley Gersom (ACT91) _ Portfolio_files/
+│       ├── ACT91-icon.png
+│       ├── ACT91.jpg
+│       ├── IMG20250320_065938.jpeg
+│       └── ...
 ├── src/
-│   ├── components/         # Reusable components
-│   ├── pages/             # Page components
-│   ├── constants/         # Configuration and data
-│   └── assets/           # Static assets
-├── public/               # Public assets
-├── styles/              # CSS files
-└── vercel.json         # Vercel configuration
+│   ├── App.tsx
+│   ├── index.css
+│   ├── InstallPWA.tsx
+│   ├── InstallPWAToast.tsx
+│   ├── main.tsx
+│   ├── ThemeProvider.tsx
+│   ├── version.ts
+│   ├── vite-env.d.ts
+│   └── assets/
+├── styles/
+│   ├── About.css
+│   ├── App.css
+│   ├── Footer.css
+│   ├── Header.css
+│   └── InstallPWA.css
+├── .env
+├── .gitignore
+├── .vercelignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vercel.json
+└── vite.config.ts
 ```
 
 ## 🔧 Scripts
