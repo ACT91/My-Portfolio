@@ -1,0 +1,36 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Stanley Gersom",
+  "alternateName": "ACT91",
+  "url": "https://stanleygersom.vercel.app",
+  "image": "https://stanleygersom.vercel.app/Stanley Gersom (ACT91) _ Portfolio_files/ACT91-icon.png",
+  "sameAs": [
+    "https://github.com/ACT91",
+    "https://linkedin.com/in/stanley-gersom"
+  ],
+  "jobTitle": "Software Developer",
+  "worksFor": {
+    "@type": "Any One Available To Hire Me",
+    "name": "Freelance/Remote"
+  },
+  "knowsAbout": [
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Python",
+    "C#",
+    "Kotlin",
+    "Flutter",
+    "Cyber Security",
+    "Penetration Testing",
+    "Web Development",
+    "Mobile Development"
+  ],
+  "description": "Skilled programmer and cyber security enthusiast proficient in React, Tailwind CSS, C#, Python, Kotlin, Flutter, and penetration testing.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Blantyre",
+    "addressCountry": "Malawi"
+  }
+}
