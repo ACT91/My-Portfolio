@@ -1,5 +1,5 @@
 /* Updated v1.2 */
-button.install-button {
+.install-button {
   position: fixed;
   bottom: 1rem;
   left: 1rem; /* Changed from right to left */
