@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /google*.html
 
 Sitemap: https://stanleygersom.vercel.app/sitemap.xml
