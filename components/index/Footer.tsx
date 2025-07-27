@@ -26,6 +26,7 @@ interface FooterProps {
   homeRef?: React.RefObject<HTMLDivElement | null>;
   aboutRef?: React.RefObject<HTMLDivElement | null>;
   projectsRef?: React.RefObject<HTMLDivElement | null>;
+  downloadsRef?: React.RefObject<HTMLDivElement | null>;
   contactRef?: React.RefObject<HTMLDivElement | null>;
 }
 
@@ -34,6 +35,7 @@ const Footer: React.FC<FooterProps> = ({
   homeRef,
   aboutRef,
   projectsRef,
+  downloadsRef,
   contactRef
 }) => {
   const currentYear = new Date().getFullYear();
@@ -94,6 +96,7 @@ const Footer: React.FC<FooterProps> = ({
                   { ref: homeRef, label: 'Home' },
                   { ref: aboutRef, label: 'About' },
                   { ref: projectsRef, label: 'Projects' },
+                  { ref: downloadsRef, label: 'Downloads' },
                   { ref: contactRef, label: 'Contact' }
                 ].map((link, index) => (
                   <li key={index}>

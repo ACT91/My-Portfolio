@@ -8,7 +8,10 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "vercel-build": "vite build"
+    "vercel-build": "vite build",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -21,17 +24,18 @@
     "daisyui": "^5.0.37",
     "lucide-react": "^0.511.0",
     "next": "^15.3.2",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.6.0",
     "tailwindcss": "^4.1.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^4.4.1",
+    "@tauri-apps/cli": "^2.7.1",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.7.0",
     "eslint": "^9.25.0",
     "eslint-plugin-react-dom": "^1.49.0",
     "eslint-plugin-react-hooks": "^5.2.0",

@@ -1,0 +1,33 @@
+/* Downloads page specific styles */
+.downloads-section {
+  background: linear-gradient(135deg, rgba(32, 0, 88, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.download-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-card:hover {
+  transform: translateY(-5px);
+}
+
+.download-icon {
+  transition: transform 0.3s ease;
+}
+
+.download-card:hover .download-icon {
+  transform: scale(1.1);
+}
+
+.badge-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .badge-container {
+    gap: 0.25rem;
+  }
+}

@@ -6,6 +6,7 @@ import MainContent from '../components/index/MainContent';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
 import Projects from '../pages/Projects';
+import Downloads from '../pages/Downloads';
 import InstallPWAToast from './InstallPWAToast';
 import ChatbotWidget from '../components/ChatbotWidget';
 import '../styles/App.css';
@@ -18,6 +19,7 @@ const App: React.FC = () => {
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
+  const downloadsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
   
   // Log version to ensure new build is deployed
@@ -46,6 +48,7 @@ const App: React.FC = () => {
           homeRef={homeRef as React.RefObject<HTMLDivElement>}
           aboutRef={aboutRef as React.RefObject<HTMLDivElement>}
           projectsRef={projectsRef as React.RefObject<HTMLDivElement>}
+          downloadsRef={downloadsRef as React.RefObject<HTMLDivElement>}
           contactRef={contactRef as React.RefObject<HTMLDivElement>}
         />
         <main className="flex-grow pt-16">
@@ -58,6 +61,9 @@ const App: React.FC = () => {
           <div ref={projectsRef} id="projects">
             <Projects />
           </div>
+          <div ref={downloadsRef} id="downloads" className="min-h-screen">
+            <Downloads />
+          </div>
           <div ref={contactRef} id="contact" className="min-h-screen">
             <Contact />
           </div>
@@ -67,6 +73,7 @@ const App: React.FC = () => {
           homeRef={homeRef as React.RefObject<HTMLDivElement>}
           aboutRef={aboutRef as React.RefObject<HTMLDivElement>}
           projectsRef={projectsRef as React.RefObject<HTMLDivElement>}
+          downloadsRef={downloadsRef as React.RefObject<HTMLDivElement>}
           contactRef={contactRef as React.RefObject<HTMLDivElement>}
         />
       

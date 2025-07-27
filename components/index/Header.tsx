@@ -6,10 +6,11 @@ interface HeaderProps {
   homeRef: React.RefObject<HTMLDivElement>;
   aboutRef: React.RefObject<HTMLDivElement>;
   projectsRef: React.RefObject<HTMLDivElement>;
+  downloadsRef: React.RefObject<HTMLDivElement>;
   contactRef: React.RefObject<HTMLDivElement>;
 }
 
-const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, projectsRef, contactRef }) => {
+const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, projectsRef, downloadsRef, contactRef }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   const closeMobileMenu = () => {
@@ -26,6 +27,7 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, pro
     { id: 'home', label: 'Home', ref: homeRef },
     { id: 'about', label: 'About', ref: aboutRef },
     { id: 'projects', label: 'Projects', ref: projectsRef },
+    { id: 'downloads', label: 'Downloads', ref: downloadsRef },
     { id: 'contact', label: 'Contact', ref: contactRef },
   ];
 
@@ -40,6 +42,8 @@ const Header: React.FC<HeaderProps> = ({ scrollToSection, homeRef, aboutRef, pro
       // Check which section is in view
       if (contactRef.current && scrollPosition >= contactRef.current.offsetTop) {
         setActiveSection('contact');
+      } else if (downloadsRef.current && scrollPosition >= downloadsRef.current.offsetTop) {
+        setActiveSection('downloads');
       } else if (projectsRef.current && scrollPosition >= projectsRef.current.offsetTop) {
         setActiveSection('projects');
       } else if (aboutRef.current && scrollPosition >= aboutRef.current.offsetTop) {

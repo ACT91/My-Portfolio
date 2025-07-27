@@ -1,0 +1,32 @@
+{
+  "productName": "Stanley Gersom (ACT91) Portfolio",
+  "version": "1.0.0",
+  "identifier": "com.stanleygersom.portfolio",
+  "build": {
+    "beforeBuildCommand": "npm run build",
+    "beforeDevCommand": "npm run dev",
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Stanley Gersom (ACT91) Portfolio",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/128x128.ico"
+    ]
+  }
+}
