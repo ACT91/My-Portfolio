@@ -9,7 +9,7 @@ const Downloads = () => {
   };
 
   return (
-    <section className="min-h-screen bg-base-100 py-20 downloads-section">
+    <section className="min-h-screen bg-base-200 py-20 downloads-section">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">

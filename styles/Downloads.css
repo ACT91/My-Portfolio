@@ -1,6 +1,6 @@
 /* Downloads page specific styles */
 .downloads-section {
-  background: linear-gradient(135deg, rgba(32, 0, 88, 0.05) 0%, rgba(255, 255, 255, 0.05) 100%);
+  /* Remove custom background to let Tailwind handle it */
 }
 
 .download-card {
