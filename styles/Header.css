@@ -1,62 +1,63 @@
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 .header-link-gradient {
   position: relative;
   z-index: 1;
   transition: color 0.2s;
-  color: transparent !important;
-   background: linear-gradient(90deg, blue, red, blue);
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: text-gradient-move 3s linear infinite;
+  color: #1e3a8a;
 }
 
 .header-link-gradient.active {
   color: transparent !important;
-  background: linear-gradient(90deg, blue, red, blue);
-  background-size: 200% 200%;
+  background: linear-gradient(90deg, #2563eb, #dc2626, #2563eb);
+  background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: header-link-gradient-move 2s linear infinite;
+  animation: gradient-move 3s linear infinite;
 }
 
-.header-link-gradient.active::after {
+.contact-me-btn {
+  position: relative;
+  background: white;
+  color: #1e3a8a;
+  border: 2px solid #e5e7eb;
+  isolation: isolate;
+}
+
+.contact-me-btn::before {
   content: '';
   position: absolute;
-  left: 10%;
-  right: 10%;
-  bottom: -2px;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, blue, red, blue);
-  background-size: 200% 200%;
-  animation: header-link-gradient-move 2s linear infinite;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--angle, 0deg), #2563eb, #dc2626, #2563eb);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
 }
 
-@keyframes header-link-gradient-move {
-  0% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.contact-me-btn.animate-border::before {
+  opacity: 1;
+  animation: spinContactGradient 3s linear infinite;
 }
 
-@keyframes text-gradient-move {
-  0% { background-position: 200% center; }
-  100% { background-position: 0% center; }
+@keyframes gradient-move {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: 0% center;
-  }
-  50% {
-    background-position: 100% center;
-  }
-  100% {
-    background-position: 0% center;
-  }
+@keyframes spinContactGradient {
+  to { --angle: 360deg; }
 }
 
-/* Fix for medium screens to prevent wrapping */
 @media (min-width: 768px) and (max-width: 850px) {
   .navbar .btn {
     padding-left: 2.5rem;

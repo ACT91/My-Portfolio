@@ -16,7 +16,6 @@ const Contact: React.FC = () => {
     const timer = setTimeout(() => {
       setKey(prev => prev + 1);
     }, 1000);
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -73,7 +72,7 @@ const Contact: React.FC = () => {
                   {submitStatus.message}
                 </div>
               )}
-              <form ref={form} onSubmit={sendEmail} className="card bg-base-100 p-10 shadow-md max-w-3xl mx-auto space-y-6 w-full">
+              <form ref={form} id="contact-form" onSubmit={sendEmail} className="card bg-base-100 p-10 shadow-md max-w-3xl mx-auto space-y-6 w-full">
                 <div className="form-control items-center">
                   <input
                     type="text"

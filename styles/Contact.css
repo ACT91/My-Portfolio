@@ -1,0 +1,41 @@
+/* Animated gradient border for Contact Me button */
+.gradient-border-button {
+  position: relative;
+  isolation: isolate;
+}
+
+.gradient-border-button::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* occupies full size */
+  padding: 2px; /* border thickness */
+  border-radius: inherit;
+  background: conic-gradient(from var(--angle,0deg), #0066ff, #ff0033, #0066ff);
+  animation: spinGradient 4s linear infinite;
+  animation-play-state: paused; /* start paused until in view */
+  /* Mask to show only border ring */
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  z-index: -1; /* behind button content */
+}
+
+/* Smooth background for button itself */
+.gradient-border-button {
+  background: linear-gradient(135deg, rgba(0,102,255,0.15), rgba(255,0,51,0.15));
+  backdrop-filter: blur(4px);
+  transition: color .3s ease, background .3s ease;
+}
+
+.gradient-border-button.animate-border::before {
+  animation-play-state: running;
+}
+
+@keyframes spinGradient {
+  to { --angle: 360deg; }
+}
+
+/* Optional hover effect */
+.gradient-border-button:hover {
+  background: linear-gradient(135deg, rgba(0,102,255,0.3), rgba(255,0,51,0.3));
+}
