@@ -1,5 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: oklch(var(--b2));
+  transition: background-color 0.3s ease;
+}
+
 @layer utilities {
   @keyframes fade-in {
     from { opacity: 0; }

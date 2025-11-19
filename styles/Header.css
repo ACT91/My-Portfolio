@@ -29,6 +29,14 @@
   isolation: isolate;
 }
 
+/* Dark mode support for Contact Me button */
+:root[data-theme="dark"] .contact-me-btn,
+html.dark .contact-me-btn {
+  background: #1f2937;
+  color: #60a5fa;
+  border-color: #374151;
+}
+
 .contact-me-btn::before {
   content: '';
   position: absolute;
@@ -56,6 +64,21 @@
 
 @keyframes spinContactGradient {
   to { --angle: 360deg; }
+}
+
+/* Red theme toggle button */
+.theme-toggle-red {
+  color: #dc2626;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-red:hover {
+  background: rgba(220, 38, 38, 0.1);
+  color: #991b1b;
+}
+
+.theme-toggle-red svg {
+  filter: drop-shadow(0 0 2px rgba(220, 38, 38, 0.3));
 }
 
 @media (min-width: 768px) and (max-width: 850px) {
