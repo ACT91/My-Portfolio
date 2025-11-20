@@ -65,7 +65,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <header className="fixed top-0 w-full z-50">
       <nav className="max-w-[1300px] mx-auto w-full px-4 flex mt-4">
-        <div className="flex justify-between w-full max-w-[1200px] mx-auto bg-white/80 backdrop-blur-lg items-center p-3 rounded-full border border-white/20 shadow-lg">
+        <div className="flex justify-between w-full max-w-[1200px] mx-auto backdrop-blur-lg items-center p-3 rounded-full border border-base-300/50 shadow-lg">
           {/* Logo or Title */}
           <button
             onClick={() => scrollToSection(homeRef)}
@@ -130,7 +130,7 @@ const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile dropdown */}
       {isMenuOpen && (
-        <div className="lg:hidden fixed top-24 right-4 bg-white/90 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-6 w-64 z-[60]">
+        <div className="lg:hidden fixed right-4 backdrop-blur-lg border border-base-300/50 rounded-2xl shadow-2xl p-6 w-64 z-[60]">
           <nav className="flex flex-col space-y-3">
             {navigation.map((item) => (
               <button
