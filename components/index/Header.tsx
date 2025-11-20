@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({
     <header className="fixed top-0 w-full z-50">
       <nav className="max-w-[1300px] mx-auto w-full px-4 flex mt-4">
         <div className="flex justify-between w-full max-w-[1200px] mx-auto bg-white/80 backdrop-blur-lg items-center p-3 rounded-full border border-white/20 shadow-lg">
-          {/* Logo / Title */}
+          {/* Logo or Title */}
           <button
             onClick={() => scrollToSection(homeRef)}
             className="flex-shrink-0 flex items-center space-x-2 focus:outline-none"
