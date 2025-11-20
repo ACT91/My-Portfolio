@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import '/styles/Header.css';
 
 interface HeaderProps {
@@ -19,7 +19,6 @@ const Header: React.FC<HeaderProps> = ({
   contactRef,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const contactBtnRef = useRef<HTMLButtonElement>(null);
 
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
@@ -63,26 +62,6 @@ const Header: React.FC<HeaderProps> = ({
     document.body.style.overflow = '';
   }, []);
 
-  // IntersectionObserver to animate Contact Me button when contact section enters viewport
-  useEffect(() => {
-    if (!contactRef.current || !contactBtnRef.current) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!contactBtnRef.current) return;
-          if (entry.isIntersecting) {
-            contactBtnRef.current.classList.add('animate-border');
-          } else {
-            contactBtnRef.current.classList.remove('animate-border');
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px' }
-    );
-    observer.observe(contactRef.current);
-    return () => observer.disconnect();
-  }, [contactRef]);
-
   return (
     <header className="fixed top-0 w-full z-50">
       <nav className="max-w-[1300px] mx-auto w-full px-4 flex mt-4">
@@ -115,11 +94,8 @@ const Header: React.FC<HeaderProps> = ({
           <div className="flex items-center gap-2">
             {/* Contact Me Button */}
             <button
-              ref={contactBtnRef}
               onClick={() => scrollToSection(contactRef)}
-              className={`hidden lg:inline-block px-6 py-2 rounded-full transition-all duration-300 font-medium contact-me-btn${
-                activeSection === 'contact' ? ' active' : ''
-              }`}
+              className="hidden lg:inline-block px-6 py-2 rounded-full transition-all duration-300 font-medium contact-me-btn"
             >
               Contact Me
             </button>
@@ -175,9 +151,7 @@ const Header: React.FC<HeaderProps> = ({
                 scrollToSection(contactRef);
                 closeMobileMenu();
               }}
-              className={`px-4 py-3 rounded-full transition-all duration-300 font-medium w-full mt-4 text-center contact-me-btn${
-                activeSection === 'contact' ? ' active' : ''
-              }`}
+              className="px-4 py-3 rounded-full transition-all duration-300 font-medium w-full mt-4 text-center contact-me-btn"
             >
               Contact Me
             </button>

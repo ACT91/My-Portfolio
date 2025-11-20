@@ -25,18 +25,12 @@
 .contact-me-btn::before {
   content: '';
   position: absolute;
-  inset: -2px;
+  inset: -5px;
   border-radius: inherit;
   background: linear-gradient(90deg, #2563eb, #dc2626, #2563eb);
   background-size: 200% auto;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: -1;
-}
-
-.contact-me-btn.active::before {
-  opacity: 1;
   animation: gradient-move 3s linear infinite;
+  z-index: -1;
 }
 
 @keyframes gradient-move {
