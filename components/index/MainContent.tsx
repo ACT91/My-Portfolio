@@ -204,8 +204,8 @@ const MainContent: React.FC = () => {
       h-auto
       rounded-xl
       max-[768px]:h-[600px]
-      bg-white/90 dark:bg-base-200/90
-      text-gray-900 dark:text-gray-100"
+      bg-white/90
+      text-gray-900"
             >
               <div className="relative w-45 h-45 mb-3">
                 {/* Animated gradient ring */}
@@ -223,11 +223,11 @@ const MainContent: React.FC = () => {
                 />
               </div>
               <h1
-                className="text-2xl md:text-3xl font-bold drop-shadow mb-1 text-center md:text-left animate-slide-in text-gray-800 dark:text-gray-100"
+                className="text-2xl md:text-3xl font-bold drop-shadow mb-1 text-center md:text-left animate-slide-in text-gray-900"
               >
                 Stanley Gersom (ACT91)
               </h1>
-              <p className="text-base md:text-lg mb-1 text-center md:text-left animate-slide-in delay-150 text-gray-700 dark:text-gray-200">
+              <p className="text-base md:text-lg mb-1 text-center md:text-left animate-slide-in delay-150 text-gray-800">
                 <TypeWriter 
                   text="Programmer & Cyber Security Enthusiast"
                   delay={70}
@@ -236,7 +236,7 @@ const MainContent: React.FC = () => {
               </p>
               
               {showSecondText && (
-                <p className="text-sm md:text-base max-w-xs mx-auto md:mx-0 text-center md:text-left animate-slide-in delay-300 text-gray-600 dark:text-gray-300">
+                <p className="text-sm md:text-base max-w-xs mx-auto md:mx-0 text-center md:text-left animate-slide-in delay-300 text-gray-700">
                   <TypeWriter 
                     text="Passionate about building secure, scalable, and user-friendly applications. Experienced in full-stack development, mobile apps, and ethical hacking. Always eager to learn and collaborate on innovative projects."
                     delay={30}
